@@ -29,6 +29,7 @@ type Dashboard struct {
 func (c *Client) SaveDashboard(model map[string]interface{}, overwrite bool) (*DashboardSaveResponse, error) {
 	wrapper := map[string]interface{}{
 		"dashboard": model,
+		"folderId":  model,
 		"overwrite": overwrite,
 	}
 	data, err := json.Marshal(wrapper)
