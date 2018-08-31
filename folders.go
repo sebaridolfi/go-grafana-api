@@ -19,7 +19,7 @@ type FolderCreateResponse struct {
 
 type Folder struct {
 	//Model map[string]interface{} `json:"folder"`
-	Id string `json:"id"`
+	Id int `json:"id"`
 }
 
 func (c *Client) CreateFolder(model map[string]interface{}) (*FolderCreateResponse, error) {

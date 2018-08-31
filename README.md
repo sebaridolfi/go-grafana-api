@@ -7,7 +7,7 @@ Grafana HTTP API Client for Go
 To install this package run:
 
 ```
-go get github.com/sebaridolfi/go-grafana-api
+go get github.medallia.com/medallia/go-grafana-api
 ```
 
 ## Todo
