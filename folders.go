@@ -12,7 +12,7 @@ import (
 
 
 type FolderCreateResponse struct {
-	id     string `json:"id"`
+	Id     int `json:"id"`
 	uid    string `json:"uid"`
 	title  string `json:"title"`
 }
@@ -24,7 +24,8 @@ type Folder struct {
 
 func (c *Client) CreateFolder(model map[string]interface{}) (*FolderCreateResponse, error) {
 	wrapper := map[string]interface{}{
-		"title": model,
+		"title": model["title"],
+		"uid": 	 model["uid"],
 	}
 	data, err := json.Marshal(wrapper)
 	if err != nil {
@@ -68,13 +69,14 @@ func (c *Client) Folder(slug string) (*Folder, error) {
 	if err != nil {
 		return nil, err
 	}
-	if resp.StatusCode != 200 {
-		return nil, errors.New(resp.Status)
-	}
 
 	// If the error code is 404 that means that the folder does not exist. Don't treat this case as an error
 	if resp.StatusCode == 404 {
 		return nil, nil
+	}
+
+	if resp.StatusCode != 200 {
+		return nil, errors.New(resp.Status)
 	}
 
 	data, err := ioutil.ReadAll(resp.Body)

@@ -7,10 +7,10 @@ Grafana HTTP API Client for Go
 To install this package run:
 
 ```
-go get github.com/sebaridolfi/go-grafana-api
+go get github.medallia.com/medallia/go-grafana-api
 ```
 
 ## Todo
 1. Update client to handle error parsing. 
 2. Deprecate slug based api methods in favor of uid.
-
+3. Add folder API methods. 
